@@ -1,0 +1,10 @@
+$(function(){
+    $('.user-edit').click(function(){
+        $('#user-id').val($(this).attr('user-id'));
+        $('#nome').val($(this).attr('nome'));
+        $('#login').val($(this).attr('login'));
+        $('#email').val($(this).attr('email'));
+        $('#senha').val($(this).attr('senha'));
+        $('#tipo').val($(this).attr('tipo'));
+    });
+});

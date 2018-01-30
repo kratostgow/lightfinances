@@ -46,19 +46,19 @@ $hasAlert = $_GET['hasAlert'];
             <form class="form" action="actions/registerUser.php" method="post">
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="nome" placeholder="Nome Completo">
+                    <input type="text" class="form-control" name="nome" placeholder="Nome Completo" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="Endereço de Email">
+                    <input type="email" class="form-control" name="email" placeholder="Endereço de Email" required>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="login" placeholder="Usuário">
+                    <input type="text" class="form-control" name="login" placeholder="Usuário" required>
                 </div>
 
                 <div class="form-group" >
-                    <input type="password" class="form-control" name="senha" placeholder="Senha">
+                    <input type="password" class="form-control" name="senha" placeholder="Senha" required>
                 </div>
 
                 <div class="form-group" >
