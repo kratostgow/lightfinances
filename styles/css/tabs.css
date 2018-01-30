@@ -1,0 +1,46 @@
+.tabs-menu {
+  background-color: #ECF0F1;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.tabs-menu li {
+  float: left;
+}
+
+.tabs-menu a {
+  display: block;
+}
+
+.ui-tabs-tab {
+  background-color: #4EA3F6;
+  border-bottom: 3px solid #64AEF7;
+}
+
+.ui-tabs-anchor {
+  color: white;
+}
+
+.ui-state-hover {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+.ui-tabs-active {
+  background-color: #418BD4;
+  border-bottom: 3px solid #3D80C4;
+}
+
+/* CONTENT */
+
+.tabs-content {
+  border: 1px solid #ecf0f1;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 15px;
+}
