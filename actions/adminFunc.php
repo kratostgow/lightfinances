@@ -46,7 +46,7 @@ function Card($panelTitle, $title, $text, $btnContent, $formAction, $formMethod,
     }
 }
 
-// Get tabs for page Definitions
+// Get tabs
 function getTabs($Conn) {
     $query = "SELECT * FROM defTabs";
     $result = mysqli_query($Conn, $query);
@@ -57,7 +57,19 @@ function getTabs($Conn) {
 }
 
 
+// Get users
+function getUsers($Conn) {
+    $query = "SELECT * FROM users";
+    $result = mysqli_query($Conn, $query);
+    while ($row = $result->fetch_assoc()){
+        $users [] = $row;
+    }
+    return $users;
+}
+
+
 $tabs = getTabs($Conn);
+$users = getUsers($Conn);
 
 
 //Close the connection
