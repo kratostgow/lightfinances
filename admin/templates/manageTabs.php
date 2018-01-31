@@ -26,12 +26,13 @@
                      <td><?php echo $t['extContent']; ?></td>
                      <th>
                          <a
-                             class="user-edit"
+                             class="tab-edit"
                              href="#"
-                             user-id="<?php echo $u['id']; ?>"
-                             nome="<?php echo $u['nome']; ?>"
-                             icone="<?php echo $u['icone']; ?>"
-                             template="<?php echo $u['template']; ?>"
+                             tab-id="<?php echo $t['id']; ?>"
+                             name="<?php echo $t['name']; ?>"
+                             icon="<?php echo $t['icon']; ?>"
+                             content="<?php echo $t['content']; ?>"
+                             extContent="<?php echo $t['extContent']; ?>"
                              data-toggle="modal"
                              data-target="#editTabs"
                          ><i class="fa fa-pencil"></i></a>
@@ -56,35 +57,26 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="" action="/actions/editTab.php" method="post">
-            <input type="hidden" name="id" id="user-id" value="">
+        <form class="" id="editTabForm" action="/actions/editTab.php" method="post">
+            <input type="hidden" name="id" id="tab-id" value="">
             <div class="form-group">
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo" required>
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
-
             <div class="form-group">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Endereço de Email" required>
+                <input type="text" class="form-control" id="icon" name="icon" required>
             </div>
-
             <div class="form-group">
-                <input type="text" class="form-control" id="login" name="login" placeholder="Usuário" required>
+                <input type="text" class="form-control" id="content" name="content" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="extContent" name="extContent" required>
             </div>
 
-            <div class="form-group" >
-                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
-            </div>
-
-            <div class="form-group" >
-                <select class="form-control" id="tipo" name="tipo" placeholder="Tipo de usuário">
-                    <option value="1">Administrador</option>
-                    <option value="2">Usuário</option>
-                </select>
-            </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
+        <button type="button" class="btn btn-primary" form="editTabForm">Salvar</button>
       </div>
     </div>
   </div>

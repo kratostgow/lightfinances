@@ -1,0 +1,9 @@
+$(function(){
+    $('.tab-edit').click(function(){
+        $('#tab-id').val($(this).attr('tab-id'));
+        $('#name').val($(this).attr('name'));
+        $('#icon').val($(this).attr('icon'));
+        $('#content').val($(this).attr('content'));
+        $('#extContent').val($(this).attr('extContent'));
+    });
+});

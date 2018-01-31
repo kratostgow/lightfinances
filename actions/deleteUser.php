@@ -23,4 +23,4 @@ if ($result) {
   header("location: /admin/def.php?alertMsg=".$alertMsg."&alertType=".$alertType."&hasAlert=".$hasAlert);
   $hasAlert = false;
 }
-mysqli_close();
+mysqli_close($Conn);

@@ -5,7 +5,7 @@
         <div class="tabs">
           <ul class="tabs-menu">
             <?php foreach ($tabs as $v) { ?>
-            <li class="nav-item"><a class="nav-link" href="#<?php echo $v['id']; ?>"><i class="fa fa-<?php echo $v['icon']; ?>" aria-hidden="true"></i> <?php echo $v['name']; ?></a></li>
+            <li class="nav-item tab"><a class="nav-link" href="#<?php echo $v['id']; ?>"><i class="fa fa-<?php echo $v['icon']; ?>" aria-hidden="true"></i> <?php echo $v['name']; ?></a></li>
             <?php } ?>
             <!-- <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-plus" aria-hidden="true"></a> </li> -->
           </ul>

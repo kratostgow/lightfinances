@@ -14,24 +14,16 @@
   display: block;
 }
 
-.ui-tabs-tab {
+.tab {
   background-color: #4EA3F6;
   border-bottom: 3px solid #64AEF7;
 }
 
-.ui-tabs-anchor {
-  color: white;
+.tab a{
+    color:white;
 }
 
-.ui-state-hover {
-  color: white;
-}
-
-a:hover {
-  color: white;
-}
-
-.ui-tabs-active {
+.active {
   background-color: #418BD4;
   border-bottom: 3px solid #3D80C4;
 }

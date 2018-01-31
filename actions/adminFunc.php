@@ -17,35 +17,6 @@ if (isset($_POST['sitename'])) {
     header('location: /admin/def.php');
 }
 
-// Create a card with passed parameters
-function Card($panelTitle, $title, $text, $btnContent, $formAction, $formMethod, $isForm = 0) {
-    if ($isForm) {
-        echo "<form action='{$formAction}' method='{$formMethod}'>
-                <div class='card'>
-                  <div class='card-header'>
-                    {$panelTitle}
-                  </div>
-                  <div class='card-body'>
-                    <h5 class='card-title'>{$title}</h5>
-                    <p class='card-text'>{$text}</p>
-                    <button type='submit' class='btn btn-primary'>{$btnContent}</button>
-                  </div>
-                </div>
-              </form>";
-    } else {
-        echo "<div class='card'>
-          <div class='card-header'>
-            {$panelTitle}
-          </div>
-          <div class='card-body'>
-            <h5 class='card-title'>{$title}</h5>
-            <p class='card-text'>{$text}</p>
-            <a href='#' class='btn btn-primary'>{$btnContent}</a>
-          </div>
-        </div>";
-    }
-}
-
 // Get tabs
 function getTabs($Conn) {
     $query = "SELECT * FROM defTabs";
@@ -67,9 +38,32 @@ function getUsers($Conn) {
     return $users;
 }
 
+// Get categories
+function getCat($Conn) {
+    $query = "SELECT * FROM categorias";
+    $result = mysqli_query($Conn, $query);
+    while ($row = $result->fetch_assoc()){
+        $categorias [] = $row;
+    }
+    return $categorias;
+}
+
+// Get expenses
+function getExpenses($Conn) {
+    $query = "SELECT d.*, GROUP_CONCAT(c.categoria) cat FROM despesas_categorias dc INNER JOIN despesas d ON d.id = dc.despesa_id INNER JOIN categorias c ON c.id = dc.categoria_id GROUP BY d.id";
+    $result = mysqli_query($Conn, $query);
+    while ($row = $result->fetch_assoc()){
+        $despesas [] = $row;
+    }
+    return $despesas;
+}
+
+
 
 $tabs = getTabs($Conn);
 $users = getUsers($Conn);
+$despesas = getExpenses($Conn);
+$categorias = getCat($Conn);
 
 
 //Close the connection
