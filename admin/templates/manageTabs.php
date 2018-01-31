@@ -1,7 +1,24 @@
 <div class="row">
     <div class="col-md-6">
-        <form class="form-control" action="index.html" method="post">
-
+        <form class="form-control" action="/actions/addTab.php" method="post">
+            <h5>Criar</h5>
+            <hr>
+            <div class="col">
+                <label for="nome">Nome</label>
+                <input class="form-control" type="text" name="nome" required>
+            </div>
+            <div class="col">
+            <label for="icone">Icone</label>
+            <input class="form-control" type="text" name="icone" required>
+            </div>
+            <div class="col">
+            <label for="extContent">Arquivo de Template</label>
+            <input class="form-control" type="text" name="extContent" required>
+            </div>
+            <hr>
+            <div class="col">
+            <button type="submit" class="btn btn-success" name="button">Criar</button>
+            </div>
         </form>
     </div>
     <div class="col-md-6">

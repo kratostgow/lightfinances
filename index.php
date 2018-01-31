@@ -1,5 +1,6 @@
 <?php
 require 'config/siteConfigs.php';
+require 'actions/checkIndex.php';
 ?>
 <!DOCTYPE html>
 <html>

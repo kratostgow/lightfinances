@@ -1,21 +1,21 @@
 <?php require 'templates/top.php';?>
 
-<div class="container content">
+<div class="container">
   <div class="container-fluid">
     <!-- COLUNA -->
     <div class="col-12 iContent">
       <h5>Nova Despesa</h5>
       <hr>
-      <form class="form-control" action="index.html" method="post">
+      <form class="form-control" action="/actions/addDespesa.php" method="post">
           <div class="row">
               <div class="col">
                   <label for="desc">Descricao</label>
-                  <input type="text" id="desc" class="form-control" placeholder="Descreva sua despesa">
+                  <input type="text" class="form-control" name="descr" placeholder="Descreva sua despesa" required>
               </div>
 
               <div class="col">
                   <label for="cats">Categorias</label>
-                  <select multiple class="chosen-select" id="cats" name="test">
+                  <select multiple class="chosen-select" id="cats" name="categoria[]" required>
                     <?php foreach ($categorias as $c): ?>
                         <option value="<?php echo $c['id']; ?>"><?php echo $c['categoria']; ?></option>
                     <?php endforeach; ?>
@@ -23,17 +23,24 @@
               </div>
 
               <div class="col">
-                  <label for="rep">Repete</label>
+                  <label for="repeat">Repete</label>
                   <select class="form-control" name="rep">
-                    <option value="1" selected>Nao</option>  
-                    <option value="2">Sim</option>
+                    <option value="1" selected>Nao</option>
+                    <option value="2">Diariamente</option>
+                    <option value="3">Semanalmente</option>
+                    <option value="4">Mensalmente</option>
                   </select>
               </div>
 
               <div class="col">
-                  <label for="val">Valor</label>
-                  <input type="text" id="val" class="form-control" placeholder="O valor de sua despesa">
+                  <label for="valor">Valor</label>
+                  <input type="number" name="valor" class="form-control" placeholder="O valor de sua despesa" required>
               </div>
+
+              <div class="col">
+                  <label for="btn">Pronto?</label>
+                 <button type="submit" class="form-control btn btn-success" id="btn">Adicionar</button>
+             </div>
           </div>
       </form>
     </div>
@@ -54,7 +61,7 @@
               <?php foreach ($despesas as $d): ?>
                   <tr>
                     <th scope="row"><?php echo $d['id']; ?></th>
-                    <td><?php echo $d['desc']; ?></td>
+                    <td><?php echo $d['descr']; ?></td>
                     <td><?php echo $d['cat']; ?></td>
                     <td><?php echo $d['valor']; ?>,00</td>
                     <td>
@@ -74,21 +81,25 @@
               <th scope="col">#</th>
               <th scope="col">Desc</th>
               <th scope="col">Categorias</th>
+              <th scope="col">Repete</th>
               <th scope="col">Valor</th>
               <th scope="col">Acoes</th>
             </tr>
           </thead>
           <tbody>
               <?php foreach ($despesas as $d): ?>
-                  <tr>
-                    <th scope="row"><?php echo $d['id']; ?></th>
-                    <td><?php echo $d['desc']; ?></td>
-                    <td><?php echo $d['cat']; ?></td>
-                    <td><?php echo $d['valor']; ?>,00</td>
-                    <td>
-                        <a href="#editFixasModal"><i class="fa fa-pencil"></i></a>
-                    </td>
-                  </tr>
+                  <?php if ($d['rep'] != '' && $d['rep'] != 'Nao') { ?>
+                      <tr>
+                        <th scope="row"><?php echo $d['id']; ?></th>
+                        <td><?php echo $d['descr']; ?></td>
+                        <td><?php echo $d['cat']; ?></td>
+                        <td><?php echo $d['rep']; ?></td>
+                        <td><?php echo $d['valor']; ?>,00</td>
+                        <td>
+                            <a href="#editFixasModal"><i class="fa fa-pencil"></i></a>
+                        </td>
+                      </tr>
+                  <?php } ?>
               <?php endforeach; ?>
         </tbody>
     </table>
