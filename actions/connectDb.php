@@ -1,7 +1,7 @@
 <?php
 // MYSQL
 $Username = 'root';
-$Pass = 'rgc21thm85';
+$Pass = 'mysql';
 $db = 'lightfinances';
 $Host = 'localhost';
 
