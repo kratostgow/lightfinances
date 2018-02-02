@@ -37,7 +37,7 @@
                  <tbody>
                  <?php foreach ($tabs as $t): ?>
                    <tr>
-                     <th scope="row">1</th>
+                     <th scope="row"><?php echo $t['id']; ?></th>
                      <td><?php echo $t['name']; ?></td>
                      <td><?php echo "<i class='fa fa-" . $t['icon'] . "'</i>"; ?></td>
                      <td><?php echo $t['extContent']; ?></td>
@@ -53,7 +53,7 @@
                              data-toggle="modal"
                              data-target="#editTabs"
                          ><i class="fa fa-pencil"></i></a>
-                         <a href="/actions/deleteTab.php?id=<?php echo $_SESSION['id']; ?>" class="text-danger"><i class="fa fa-close"></i></a>
+                         <a href="/actions/deleteTab.php?id=<?php echo $t['id']; ?>" class="text-danger"><i class="fa fa-close"></i></a>
                      </th>
                    </tr>
                <?php endforeach; ?>
@@ -83,9 +83,6 @@
                 <input type="text" class="form-control" id="icon" name="icon" required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="content" name="content" required>
-            </div>
-            <div class="form-group">
                 <input type="text" class="form-control" id="extContent" name="extContent" required>
             </div>
 
@@ -93,7 +90,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" form="editTabForm">Salvar</button>
+        <button type="submit" class="btn btn-primary" form="editTabForm">Salvar</button>
       </div>
     </div>
   </div>

@@ -2,6 +2,8 @@
     border: 1px solid lightgray;
     border-radius: 3px;
     color: gray;
+    padding:15px !important;
+    margin:1px;
 }
 
 .iContent {

@@ -12,7 +12,7 @@
       <?php foreach ($menus as $m) {
           ?>
           <li class="nav-item">
-            <a class="nav-link <?php echo $m['class']; ?>" style="color: <?php echo $m['textcolor'];?>" href="<?php echo $m['link'];?>"><i class="<?php echo $m['icon']; ?>" aria-hidden="true"></i> <?php echo $m['content']; ?></a>
+            <a class="nav-link <?php echo $m->class; ?>" href="<?php echo $m->link;?>"><?php echo $m->content; ?></a>
           </li>
       <?php } ?>
     </ul>

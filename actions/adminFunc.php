@@ -1,32 +1,18 @@
 <?php
-require 'connectDb.php';
+require_once 'db.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Get menus for navbar
-$menus = array();
-$result = $Conn->query('SELECT * FROM menus');
-while ($row = $result->fetch_assoc()) {
-    $menus[] = $row;
-}
-
+$menuSql = "SELECT * FROM menus";
+$menus = Db::fetchAll($menuSql);
 
 // update Site Name when received
-if (isset($_POST['sitename'])) {
-    $v = $_POST['sitename'];
-    $query = "UPDATE site_configs SET name='{$v}'";
-    mysqli_query($Conn, $query);
-    header('location: /admin/def.php');
-}
-
-// Get tabs
-function getTabs($Conn) {
-    $query = "SELECT * FROM defTabs";
-    $result = mysqli_query($Conn, $query);
-    while ($row = $result->fetch_assoc()){
-        $tabs [] = $row;
-    }
-    return $tabs;
-}
-
+// if (isset($_POST['sitename'])) {
+//     $v = $_POST['sitename'];
+//     $sql = "UPDATE site_configs SET name='{$v}'";
+//     Db::query($sql);
+//     header('location: /admin/def.php');
+// }
 
 // Get users
 function getUsers($Conn) {
@@ -58,13 +44,18 @@ function getExpenses($Conn) {
     return $despesas;
 }
 
+// Get expenses
+function getExpensesT($Conn) {
+    $query = "SELECT SUM(valor) FROM despesas";
+    $result = mysqli_query($Conn, $query);
+    while ($row = $result->fetch_assoc()){
+        $despesasTotal = $row;
+    }
+    return $despesasTotal;
+}
 
-
-$tabs = getTabs($Conn);
-$users = getUsers($Conn);
-$despesas = getExpenses($Conn);
-$categorias = getCat($Conn);
-
-
-//Close the connection
-mysqli_close($Conn);
+$tabs = Db::fetchAll("SELECT * FROM defTabs");
+$users = Db::fetchAll("SELECT * FROM users");
+$despesas = Db::fetchAll("SELECT d.*, GROUP_CONCAT(c.categoria) cat FROM despesas_categorias dc INNER JOIN despesas d ON d.id = dc.despesa_id INNER JOIN categorias c ON c.id = dc.categoria_id GROUP BY d.id");
+$despesasTotal = Db::fetchRow("SELECT SUM(valor) as soma FROM despesas");
+$categorias = Db::fetchAll("SELECT * FROM categorias");

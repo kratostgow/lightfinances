@@ -1,3 +1,4 @@
+//tabs
 $(function(){
     $('.tab-edit').click(function(){
         $('#tab-id').val($(this).attr('tab-id'));

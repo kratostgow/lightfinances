@@ -1,5 +1,5 @@
 <?php
-@session_start();
+session_start();
 unset($_SESSION['id']);
 unset($_SESSION['User']);
 unset($_SESSION['login']);

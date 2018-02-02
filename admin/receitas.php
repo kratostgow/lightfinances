@@ -1,23 +1,23 @@
-<?php require 'templates/top.php';?>
+<?php require 'templates/top.php'; require 'actions/receitasFunc.php';?>
 
 <div class="container">
   <div class="container-fluid">
     <!-- COLUNA -->
     <div class="col-12 iContent">
-      <h5>Nova Despesa</h5>
+      <h5>Nova Receita</h5>
       <hr>
-      <form class="form-control" action="/actions/addDespesa.php" method="post">
+      <form class="form-control" action="/actions/addReceita.php" method="post">
           <div class="row">
               <div class="col">
                   <label for="desc">Descricao</label>
-                  <input type="text" class="form-control" name="descr" placeholder="Descreva sua despesa" required>
+                  <input type="text" class="form-control" name="descr" placeholder="Descreva sua receita" required>
               </div>
 
               <div class="col">
                   <label for="cats">Categorias</label>
-                  <select multiple class="chosen-select" id="cats" name="categoria[]" required>
-                    <?php foreach ($categorias as $c): ?>
-                        <option value="<?php echo $c['id']; ?>"><?php echo $c['categoria']; ?></option>
+                  <select multiple class="chosen-select" id="cats" name="categoriaR[]" required>
+                    <?php foreach ($categoriasR as $c): ?>
+                        <option value="<?php echo $c->id; ?>"><?php echo $c->categoria; ?></option>
                     <?php endforeach; ?>
                   </select>
               </div>
@@ -34,7 +34,7 @@
 
               <div class="col">
                   <label for="valor">Valor</label>
-                  <input type="number" name="valor" class="form-control" placeholder="O valor de sua despesa" required>
+                  <input type="number" name="valor" class="form-control" placeholder="O valor de sua receita" required>
               </div>
 
               <div class="col">
@@ -53,17 +53,19 @@
               <th scope="col">#</th>
               <th scope="col">Desc</th>
               <th scope="col">Categorias</th>
+              <th scope="col">Data</th>
               <th scope="col">Valor</th>
               <th scope="col">Acoes</th>
             </tr>
           </thead>
           <tbody>
-              <?php foreach ($despesas as $d): ?>
+              <?php foreach ($receitas as $r): ?>
                   <tr>
-                    <th scope="row"><?php echo $d['id']; ?></th>
-                    <td><?php echo $d['descr']; ?></td>
-                    <td><?php echo $d['cat']; ?></td>
-                    <td><?php echo $d['valor']; ?>,00</td>
+                    <th scope="row"><?php echo $r->id; ?></th>
+                    <td><?php echo $r->descr; ?></td>
+                    <td><?php echo $r->cat; ?></td>
+                    <td><?php echo $r->created; ?></td>
+                    <td><?php echo $r->valor; ?>,00</td>
                     <td>
                         <a href="#editFixasModal"><i class="fa fa-pencil"></i></a>
                     </td>
@@ -81,20 +83,22 @@
               <th scope="col">#</th>
               <th scope="col">Desc</th>
               <th scope="col">Categorias</th>
+              <th scope="col">Data</th>
               <th scope="col">Repete</th>
               <th scope="col">Valor</th>
               <th scope="col">Acoes</th>
             </tr>
           </thead>
           <tbody>
-              <?php foreach ($despesas as $d): ?>
-                  <?php if ($d['rep'] != '' && $d['rep'] != 'Nao') { ?>
+              <?php foreach ($receitas as $r): ?>
+                  <?php if ($r->rep != '' && $r->rep != 'Nao') { ?>
                       <tr>
-                        <th scope="row"><?php echo $d['id']; ?></th>
-                        <td><?php echo $d['descr']; ?></td>
-                        <td><?php echo $d['cat']; ?></td>
-                        <td><?php echo $d['rep']; ?></td>
-                        <td><?php echo $d['valor']; ?>,00</td>
+                        <th scope="row"><?php echo $r->id; ?></th>
+                        <td><?php echo $r->descr; ?></td>
+                        <td><?php echo $r->cat; ?></td>
+                        <td><?php echo $r->created; ?></td>
+                        <td><?php echo $r->rep; ?></td>
+                        <td><?php echo $r->valor; ?>,00</td>
                         <td>
                             <a href="#editFixasModal"><i class="fa fa-pencil"></i></a>
                         </td>

@@ -11,7 +11,7 @@ $hasAlert = $_GET['hasAlert'];
           <li class="nav-item">
             <a class="nav-link active" data-toggle="tab" href="#loginTab">Login</a>
           </li>
-          <?php if ($Registration == 'enabled') { ?>
+          <?php if ($registration == 'enabled') { ?>
               <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#registerTab">Registro</a>
               </li>
@@ -40,7 +40,7 @@ $hasAlert = $_GET['hasAlert'];
                 </form>
           </div>
 
-           <?php if ($Registration == 'enabled') { ?>
+           <?php if ($registration == 'enabled') { ?>
           <div class="tab-pane card-body" id="registerTab">
                   <h5 class="card-title">Informe seus dados</h5>
             <form class="form" action="actions/registerUser.php" method="post">
