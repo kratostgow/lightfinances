@@ -1,5 +1,3 @@
-<?php require 'templates/top.php'; require 'actions/receitasFunc.php';?>
-
 <div class="container">
     <div class="container-fluid">
         <!-- COLUNA -->
@@ -63,5 +61,3 @@
         </div>
     </div>
 </div>
-
-<?php require 'templates/bottom.php'; ?>

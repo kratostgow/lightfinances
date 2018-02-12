@@ -1,0 +1,135 @@
+.content {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    color: gray;
+    padding:15px !important;
+    margin:1px;
+}
+
+.iContent {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    color: gray;
+    margin: 10px;
+    padding: 10px;
+}
+
+.menuActive {
+    border-bottom: 4px solid #18BC9C;
+}
+
+/* Underline From Center */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #18BC9C;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
+
+.chosen-container-multi .chosen-choices {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 3.5px;
+    border-radius:0.25rem;
+    width: 100%;
+    height: auto;
+    border: 1px solid #C7CED5;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice {
+    position: relative;
+    margin: 3px 5px 3px 0;
+    padding: 3px 20px 3px 5px;
+    border: 1px solid #aaa;
+    max-width: 100%;
+    border-radius: 3px;
+    background-color: #18BC9C!important;
+    background-size: 100% 19px;
+    background-repeat: repeat-x;
+    background-clip: padding-box;
+    color: white!important;
+    line-height: 13px;
+    cursor: default;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice {
+    position: relative;
+    margin: 3px 5px 3px 0;
+    padding: 3px 20px 3px 5px;
+    border: none;
+    max-width: 100%;
+    border-radius: 3px;
+    background-color: none;
+    background-image: none;
+    background-image: none;
+    background-size: 100% 19px;
+    background-repeat: repeat-x;
+    background-clip: padding-box;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #333;
+    line-height: 13px;
+    cursor: default;
+}
+
+/* Optional Wrapper to help with Responsive Designs */
+ .select2-wrapper {
+    width: 300px;
+}
+/* Optional styling to the right */
+ .select2-results .fa {
+    float: right;
+    position: relative;
+    line-height: 20px;
+}
+
+.modal-wrap{
+    margin:15px 0;
+}
+
+.btn-modal {
+    width: 100%;
+}
+
+
+/* PROFILE PAGE */
+.profileImg {
+    border-radius:5px;
+}
+
+.profileTitle {
+    margin: 10px 3px;
+    border-bottom: 2px solid black;
+    padding:5px;
+}
+.profileDesc {
+    margin: 0px 3px;
+    padding:5px;
+}
